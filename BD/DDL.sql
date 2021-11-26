@@ -1,0 +1,31 @@
+CREATE TABLE tipoUsuario (
+	idTipoUsuario TINYINT PRIMARY KEY IDENTITY,
+	nomeTipo VARCHAR(256) NOT NULL UNIQUE
+)
+
+CREATE TABLE usuario (
+	idUsuario INT PRIMARY KEY IDENTITY,
+	idTipoUsuario TINYINT FOREIGN KEY REFERENCES [dbo].[tipoUsuario] (idTipoUsuario),
+	email VARCHAR(256) NOT NULL UNIQUE,
+	senha VARCHAR(36) NOT NULL
+)
+
+CREATE TABLE professor (
+	idProfessor INT PRIMARY KEY IDENTITY,
+	idUsuario INT FOREIGN KEY REFERENCES [dbo].[usuario] (idUsuario),
+	nome VARCHAR(256) NOT NULL,
+	sobrenome VARCHAR(256) NOT NULL,
+	cpf VARCHAR(256) NOT NULL UNIQUE
+)
+
+CREATE TABLE tema (
+	idTema SMALLINT PRIMARY KEY IDENTITY,
+	nomeTema VARCHAR(256) NOT NULL UNIQUE
+)
+
+CREATE TABLE projeto (
+	idProjeto INT PRIMARY KEY IDENTITY,
+	idTema SMALLINT FOREIGN KEY REFERENCES [dbo].[tema] (idTema),
+	titulo VARCHAR(256) NOT NULL,
+	descricao VARCHAR(512) NOT NULL
+)
