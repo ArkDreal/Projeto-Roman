@@ -26,6 +26,7 @@ CREATE TABLE tema (
 CREATE TABLE projeto (
 	idProjeto INT PRIMARY KEY IDENTITY,
 	idTema SMALLINT FOREIGN KEY REFERENCES [dbo].[tema] (idTema),
+	idProfessor INT FOREIGN KEY REFERENCES [dbo].[professor] (idProfessor),
 	titulo VARCHAR(256) NOT NULL,
 	descricao VARCHAR(512) NOT NULL
 )
