@@ -56,8 +56,8 @@ renderItem={this.renderItem}
 <view style={styles.flatItemContainer}>
 <text style={styles.flatItemTitle}>{projeto.Titulo}</text>
 <text style={styles.flatiItemInfo}>{projeto.Descricao}</text>
-<text style={styles.flatiItemInfo}>{projeto.IdProfessor.Nome}</text>
-<text style={styles.flatiItemInfo}>{projeto.IdTema.NomeTema}</text>
+<text style={styles.flatiItemInfo}>{projeto.IdProfessorNavigation.Nome}</text>
+<text style={styles.flatiItemInfo}>{projeto.IdTemaNavigation.NomeTema}</text>
 </view>
 </view>
     )

@@ -17,8 +17,8 @@ import { useNavigation } from "@react-navigation/native";
 import api from '../services/api'
 
 function Login() {
-    const [email, setEmail] = useState('saulo@gmail.com');
-    const [senha, setSenha] = useState('saulo123');
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
     const navigation = useNavigation()
 
     realizarLogin = async () => {
@@ -30,11 +30,14 @@ function Login() {
             senha: senha,
         });
 
+        console.warn('Passou pela requisição')
+
         const token = resposta.data.token;
         console.warn(token)
         await AsyncStorage.setItem('userToken', token);
 
         if (resposta.status == 200) {
+            
             console.warn('Chegou na api')
             navigation.navigate('Main')
         }
@@ -55,14 +58,16 @@ function Login() {
                 placeholder='Email'
                 placeholderTextColor="#472A82"
                 keyboardType='email-address'
-                onChange={(campo) => setEmail(campo)}
+                value={email}
+                onChangeText={(campo) => setEmail(campo)}
             />
             <TextInput
                 style={styles.inputLogin}
                 placeholder='Senha'
                 placeholderTextColor='#472A82'
                 keyboardType='default'
-                onChange={(campo) => setSenha(campo)}
+                value={senha}
+                onChangeText={(campo) => setSenha(campo)}
             />
             <TouchableOpacity
                 style={styles.btnLogin}
