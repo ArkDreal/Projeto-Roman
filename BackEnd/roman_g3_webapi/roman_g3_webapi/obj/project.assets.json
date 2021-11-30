@@ -7544,19 +7544,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\43407488890\\.nuget\\packages\\": {}
+    "C:\\Users\\48038990889\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\43407488890\\Desktop\\Projeto-Roman\\BackEnd\\roman_g3_webapi\\roman_g3_webapi\\roman_g3_webapi.csproj",
+      "projectUniqueName": "C:\\Users\\48038990889\\Desktop\\Nova pasta\\Projeto-Roman\\BackEnd\\roman_g3_webapi\\roman_g3_webapi\\roman_g3_webapi.csproj",
       "projectName": "roman_g3_webapi",
-      "projectPath": "C:\\Users\\43407488890\\Desktop\\Projeto-Roman\\BackEnd\\roman_g3_webapi\\roman_g3_webapi\\roman_g3_webapi.csproj",
-      "packagesPath": "C:\\Users\\43407488890\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\43407488890\\Desktop\\Projeto-Roman\\BackEnd\\roman_g3_webapi\\roman_g3_webapi\\obj\\",
+      "projectPath": "C:\\Users\\48038990889\\Desktop\\Nova pasta\\Projeto-Roman\\BackEnd\\roman_g3_webapi\\roman_g3_webapi\\roman_g3_webapi.csproj",
+      "packagesPath": "C:\\Users\\48038990889\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\48038990889\\Desktop\\Nova pasta\\Projeto-Roman\\BackEnd\\roman_g3_webapi\\roman_g3_webapi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\43407488890\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\48038990889\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7635,7 +7635,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

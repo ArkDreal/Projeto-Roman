@@ -38,6 +38,17 @@ namespace roman_g3_webapi
                 c.IncludeXmlComments(xmlPath);
             });
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                                builder =>
+                                {
+                                    builder.WithOrigins("http://localhost:3000")
+                                    .AllowAnyHeader()
+                                    .AllowAnyMethod();
+                                });
+            });
+
             services
                 // Define a forma de autentica??o
                 .AddAuthentication(options =>
@@ -93,6 +104,8 @@ namespace roman_g3_webapi
             });
 
             app.UseRouting();
+
+            app.UseCors("CorsPolicy");
 
             app.UseAuthentication();
 

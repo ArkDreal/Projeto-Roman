@@ -15,27 +15,28 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from "@react-navigation/native";
 
 import api from '../services/api'
-import { main } from "envinfo";
 
 function Login() {
-    const [email, setEmail] = useState('');
-    const [senha, setSenha] = useState('');
+    const [email, setEmail] = useState('saulo@gmail.com');
+    const [senha, setSenha] = useState('saulo123');
+    const navigation = useNavigation()
 
     realizarLogin = async () => {
-        console.warn(`${email} ${senha}`)
-        const navigation = useNavigation()
+        console.warn("chegou aqui")
+        //console.warn(`${email} ${senha}`)
 
-        const resposta = await api.post('/login', {
+        const resposta = await api.post('/Login', {
             email: email,
             senha: senha,
         });
 
         const token = resposta.data.token;
+        console.warn(token)
         await AsyncStorage.setItem('userToken', token);
 
         if (resposta.status == 200) {
             console.warn('Chegou na api')
-            navigation.goBack('Main')
+            navigation.navigate('Main')
         }
 
         console.warn(token)
@@ -54,14 +55,14 @@ function Login() {
                 placeholder='Email'
                 placeholderTextColor="#472A82"
                 keyboardType='email-address'
-                onChange={(campo) => setEmail(campo.target.value)}
+                onChange={(campo) => setEmail(campo)}
             />
             <TextInput
                 style={styles.inputLogin}
                 placeholder='Senha'
                 placeholderTextColor='#472A82'
                 keyboardType='default'
-                onChange={(campo) => setSenha(campo.target.value)}
+                onChange={(campo) => setSenha(campo)}
             />
             <TouchableOpacity
                 style={styles.btnLogin}
@@ -85,9 +86,9 @@ const styles = StyleSheet.create({
     },
 
     mainImgLogin: {
-        tintColor: '#8C52FF', 
-        height: 226, 
-        width: 226, 
+        tintColor: '#8C52FF',
+        height: 226,
+        width: 226,
         marginBottom: 50,
         marginTop: -40
     },
@@ -118,8 +119,8 @@ const styles = StyleSheet.create({
         borderColor: '#8C52FF',
         borderWidth: 1,
         borderRadius: 4,
-        shadowOffset: {height: 1, width: 1},
-      },
+        shadowOffset: { height: 1, width: 1 },
+    },
 })
 
 
