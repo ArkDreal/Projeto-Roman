@@ -30,10 +30,8 @@ namespace roman_g3_webapi.Repositories
                 {
                     IdProjeto = p.IdProjeto,
                     Titulo = p.Titulo,
-                    IdTemaNavigation = new Tema
-                    {
-                        NomeTema = p.IdTemaNavigation.NomeTema
-                    },
+                    Descricao = p.Descricao,
+                    Tema = p.IdTemaNavigation.NomeTema,
                     IdProfessorNavigation = new Professor
                     {
                         Nome = p.IdProfessorNavigation.Nome,

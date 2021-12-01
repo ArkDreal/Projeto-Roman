@@ -42,7 +42,7 @@ function Login() {
             navigation.navigate('Main')
         }
 
-        console.warn(token)
+        console.warn(AsyncStorage.getItem('userToken'))
     };
 
     return (

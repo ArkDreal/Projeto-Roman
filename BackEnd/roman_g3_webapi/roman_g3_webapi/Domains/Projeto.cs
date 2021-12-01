@@ -12,6 +12,7 @@ namespace roman_g3_webapi.Domains
         public int? IdProfessor { get; set; }
         public string Titulo { get; set; }
         public string Descricao { get; set; }
+        public string Tema { get; set; }
 
         public virtual Professor IdProfessorNavigation { get; set; }
         public virtual Tema IdTemaNavigation { get; set; }
