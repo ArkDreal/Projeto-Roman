@@ -1,27 +1,41 @@
-import React, {useState, useEffects, useEffect} from 'react';
-import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
+import * as React from 'react';
+import { View, Text, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import {
+    createDrawerNavigator,
+    DrawerContentScrollView,
+    DrawerItemList,
+    DrawerItem,
+} from '@react-navigation/drawer';
 
-import api from '../services/api';
+const Drawer = createDrawerNavigator();
 
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import Listar from '../screens/listar'
+// import Cadastrar from '../screens/cadastrar'
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
-
-export default function ListaEventos() {
-    const[listaProjetos, setListaProjetos] = useState([]);
-
-    function buscarProjetos() {
-        const resposta = api.get('/Projetos');
-        const dadosApi = resposta.data;
-        setListaProjetos(dadosApi)
-    }
-
-    useEffect(buscarProjetos, [])
-
-    return(
-        <View>
-            <Text>ahhhhhhhh</Text>
-        </View>
+export default function Main() {
+    return (
+            <Drawer.Navigator
+                initialRouteName="Listar"
+                screenOptions={{
+                    drawerHideStatusBarOnOpen:true,
+                    drawerStatusBarAnimation:'fade',
+                    drawerStyle:{
+                        backgroundColor: "#1D1136",
+                        width: 240,
+                    },
+                    drawerContentStyle:{
+                        alignContent: "center"
+                    },
+                    drawerLabelStyle:{
+                        textAlign: 'center',
+                        color: '#FFF'
+                    }
+                    
+                }}
+            >
+                <Drawer.Screen name="Listar" component={Listar} />
+                {/* <Drawer.Screen name="Cadastrar" component={Cadastrar} /> */}
+            </Drawer.Navigator>
     )
 }

@@ -1,68 +1,32 @@
-import React, { useState, useEffect, Component } from "react";
+import React, {useState, useEffects, useEffect} from 'react';
+import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
 
-import {
-    StyleSheet,
-    Text,
-    View,
-    TouchableOpacity,
-    Image,
-    ImageBackground,
-    TextInput,
-    Button,
-    FlatList
-} from "react-native";
+import api from '../services/api';
+
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useNavigation } from "@react-navigation/native";
 
-import api from '../services/api'
 
-export default class Projetos extends Component {
-    constructor(props)
-    super(props) {
-        this.state = {
-            listaProjetos: [],
-        }
-    }
+export default function ListaEventos() {
+    const[listaProjetos, setListaProjetos] = useState([]);
 
-    buscarProjetos = async() => {
-        const resposta = await api.get('/');
+    function buscarProjetos() {
+        const resposta = api.get('/Projetos');
         const dadosApi = resposta.data;
-        this.setState({ listaProjetos: dadosApi });
+        setListaProjetos(dadosApi)
     }
 
-    componentDidMount() {
-        this.buscarProjetos();
-    }
+    useEffect(buscarProjetos, [])
 
-    render() {
-        return (
-<view>
-{/* Colocar cabeçalho */}
-
-<view style={Styles.mainBody}>
-<FlatList 
-contentContainerStyle={styles.mainBodyContent}
-data={this.state.listaProjetos}
-keyExtractor={projeto => projeto.idProjeto}
-renderItem={this.renderItem}
-/>
-</view>
-</view>
-        );
-    }
-    renderItem = ({projeto}) => (
-<view style={styles.flatItemRow}>
-<view style={styles.flatItemContainer}>
-<text style={styles.flatItemTitle}>{projeto.Titulo}</text>
-<text style={styles.flatiItemInfo}>{projeto.Descricao}</text>
-<text style={styles.flatiItemInfo}>{projeto.IdProfessorNavigation.Nome}</text>
-<text style={styles.flatiItemInfo}>{projeto.IdTemaNavigation.NomeTema}</text>
-</view>
-</view>
+    return(
+        <View>
+            <View>
+                <Text>Projetos</Text>
+            </View>
+            <View>
+                
+            </View>
+        </View>
     )
 }
-
-const styles = StyleSheet.create({
-    
-})
